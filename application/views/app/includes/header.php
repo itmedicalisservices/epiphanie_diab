@@ -132,7 +132,7 @@ $nb = $this->md_patient->compte_avis_encours(date("Y-m-d H:i:s"), $user->ser_id)
 				<div class="admin-image"> <img src="<?php echo base_url($user->per_sAvatar); ?>" alt=""> </div>
 				<div class="admin-action-info"> 
 				<span><?php echo $user->per_sTitre; ?> <?php echo $user->per_sNom . ' ' . $user->per_sPrenom; ?>
-					<br><?php echo substr($user->ser_sLibelle,11); ?>
+					<br><?php echo substr($user->ser_sLibelle,7);  ?>
 				</span>
 					<ul>
 						<li><a data-placement="bottom" title="messagerie" href="javascript:;"><i class="zmdi zmdi-email"></i></a></li>

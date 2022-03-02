@@ -1,0 +1,48 @@
+﻿					
+<li class="<?php if ($page == "diabetologie" or $sousPage == "prise_cste") {
+			echo "active";
+		} ?>"><a href="<?php echo site_url("diabetologie/liste_acm"); ?>"><i class="fa fa-plus"></i><span>Prise de constantes</span> </a>
+</li>
+<!--<li class="<?php if ($page == "rdv") {
+				echo "active";
+			} ?>"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>Rendez-vous</span> </a>
+	<ul class="ml-menu">
+		<li><a <?php if ($page == "rdv" and $sousPage == "partage") {
+					echo "style='color:#fff'";
+				} ?> href="<?php echo site_url("rdv/partage"); ?>">Calendrier partagé</a></li>
+		<li><a <?php if ($page == "rdv" and $sousPage == "prendre") {
+					echo "style='color:#fff'";
+				} ?> href="<?php echo site_url("rdv/prendre"); ?>">Prendre rendez-vous</a></li>
+		<li><a <?php if ($page == "rdv" and $sousPage == "listeRdv") {
+					echo "style='color:#fff'";
+				} ?> href="<?php echo site_url("rdv/listeRdv"); ?>">Liste des rendez-vous</a></li>
+		<li><a <?php if ($page == "rdv" and $sousPage == "listeRdvAnnule") {
+					echo "style='color:#fff'";
+				} ?> href="<?php echo site_url("rdv/listeRdvAnnule"); ?>">Rendez-vous annulés</a></li>
+		<li><a <?php if ($page == "rdv" and $sousPage == "listeRdvValide") {
+					echo "style='color:#fff'";
+				} ?> href="<?php echo site_url("rdv/listeRdvValide"); ?>">Rendez-vous validés</a></li>
+
+
+	</ul>
+</li>-->
+<!-- 
+<li class="<?php if ($page == "courrier") {
+		echo "active";
+	} ?>"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>Courriers</span> </a>
+<ul class="ml-menu">
+	<li><a <?php if ($page == "courrier" and $sousPage == "nouveauCourrier") {
+				echo "style='color:#fff'";
+			} ?> href="<?php echo site_url("courrier/nouveauCourrier"); ?>">Nouveau courrier</a></li>
+	<li><a <?php if ($page == "courrier" and $sousPage == "courrierEntrant") {
+				echo "style='color:#fff'";
+			} ?> href="<?php echo site_url("courrier/courrierEntrant"); ?>">Courriers entrants</a></li>
+	<li><a <?php if ($page == "courrier" and $sousPage == "courrierSortant") {
+				echo "style='color:#fff'";
+			} ?> href="<?php echo site_url("courrier/courrierSortant"); ?>">Courriers sortants</a></li>	
+	<li><a <?php if ($page == "courrier" and $sousPage == "archivage") {
+				echo "style='color:#fff'";
+			} ?> href="<?php echo site_url("courrier/archivage"); ?>">Archives</a></li>	
+</ul>
+</li>
+-->
