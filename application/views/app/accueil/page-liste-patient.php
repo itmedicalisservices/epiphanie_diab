@@ -167,7 +167,7 @@
 								<div class="row clearfix">
 									
 									<div class="col-sm-12">
-										<button type="submit" class="btn btn-raised bg-blue-grey pull-right" id="enregistrerHospi">DEMANDE D\'HOSPITALISATION</button>
+										<button type="submit" class="btn btn-raised bg-blue-grey pull-right" id="enregistrerHospi">HOSPITALISER</button>
 									</div>
 								</div>
 							</form>
