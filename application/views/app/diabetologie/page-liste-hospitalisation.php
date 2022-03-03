@@ -46,7 +46,7 @@
 											<td class="text-center"><?php echo $this->md_config->affDateFrNum($le->hos_dDate);?></td>
 											<td class="text-center">
 												<?php if($user->per_iTypeCompte!=5){ ?>
-													<a href="<?php echo site_url("hospitalisation/patient_hospitalise/".$le->hos_id); ?>"><b><i class="fa fa-bed" style="font-size:23px"></i><br>Consulter <?php var_dump($le->hos_id);?></b></a>
+													<a href="<?php echo site_url("hospitalisation/patient_hospitalise/".$le->hos_id); ?>"><b><i class="fa fa-bed" style="font-size:23px"></i><br>Consulter</b></a>
 												<?php }else{ ?>
 													<a href="<?php echo site_url("hospitalisation/voir/".$le->hos_id); ?>"><b>Voir <?php var_dump($le->hos_id);?></b></a>
 												<?php } ?>
