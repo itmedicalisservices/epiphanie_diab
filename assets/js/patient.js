@@ -958,14 +958,16 @@ $("#EnregistrerPatient").click(function(){
 				$("form#form-add-pat .photo").parent("div").addClass("has-error");
 			}
 			else{	
+				//alert(retour);
 				$(".retour-add-pat").addClass("alert alert-success").html("Patient ajouté avec succès").removeClass("danger");
 				$("form#form-add-pat .tel").parent("div").removeClass("has-error");
 				$("form#form-add-pat .photo").parent("div").removeClass("has-error");
 				$("form#form-add-pat .otherPhone").parent("div").removeClass("has-error");
 				$("#finishPatient").click();
-				$("#refreshPatient").html("<meta http-equiv='"+orientation+"/"+retour+"' content='2'>");
-				// if(cste == 'OUI'){$("#refreshPatient").html("<meta http-equiv='"+pCste+"/"+retour+"' content='2'>");}else{$("#refreshPatient").html("<meta http-equiv='"+orientation+"/"+retour+"' content='2'>");}
-				$('#mdModalPatient').attr("rel",retour);
+				////$("#refreshPatient").html("<meta http-equiv='"+orientation+"/"+retour+"' content='2'>");
+				$("#refreshPatient").html("<meta http-equiv='"+listePatient+"' content='2'>");
+				////if(cste == 'OUI'){$("#refreshPatient").html("<meta http-equiv='"+pCste+"/"+retour+"' content='2'>");}else{$("#refreshPatient").html("<meta http-equiv='"+orientation+"/"+retour+"' content='2'>");}
+				//$('#mdModalPatient').attr("rel",retour);
 			}
 			
 		});

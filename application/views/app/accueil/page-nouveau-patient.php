@@ -185,8 +185,7 @@
 
 
 <!-- For Material Design Colors -->
-<div class="modal fade" id="mdModalPatient" tabindex="-1" role="dialog">
-	
+<div class="modal fade" id="mdModalOrientation" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content text-center">
             <div class="modal-header">

@@ -1874,13 +1874,24 @@ $(function () {
     });
 });
 
-$(function () {
+//Orientation normal
+/*$(function () {
     $('.finishPatient').on('click', function () {
         var color = $(this).data('color');
         $('#mdModalPatient .modal-content').removeAttr('class').addClass('modal-content modal-col-' + color);
         $('#mdModalPatient').modal('show');
     });
+});*/
+
+
+$(function () {
+    $('.finishPatient').on('click', function () {
+        var color = $(this).data('color');
+        $('#mdModalOrientation .modal-content').removeAttr('class').addClass('modal-content modal-col-' + color);
+        $('#mdModalOrientation').modal('show');
+    });
 });
+
 
 $(function () {
     $('.finaleComplement').on('click', function () {

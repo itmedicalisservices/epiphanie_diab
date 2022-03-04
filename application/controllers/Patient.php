@@ -215,8 +215,6 @@ class Patient extends CI_Controller {
 						
 					}
 				}
-					
-				
 			}
 			else if(trim($data["tel"]) !="" AND $_FILES["photo"]["name"]!=""){
 				if(!is_numeric($data["tel"])){
