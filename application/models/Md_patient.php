@@ -2967,14 +2967,14 @@ class Md_patient extends CI_Model {
 	{
 		return $this->db
 		->join($this->tablePer, $this->tablePer.'.per_id ='.$this->tableAcm.'.recep_iPer ','left')
-		->join($this->tableElf, $this->tableElf.'.acm_id ='.$this->tableAcm.'.acm_id ','inner')
-		->join($this->tableFac, $this->tableFac.'.fac_id ='.$this->tableElf.'.fac_id ','inner')
+		//->join($this->tableElf, $this->tableElf.'.acm_id ='.$this->tableAcm.'.acm_id ','inner')
+		//->join($this->tableFac, $this->tableFac.'.fac_id ='.$this->tableElf.'.fac_id ','inner')
 		->join($this->tablePat, $this->tablePat.'.pat_id ='.$this->tableAcm.'.pat_id ','inner')
 		->join($this->tableLac, $this->tableLac.'.lac_id ='.$this->tableAcm.'.lac_id ','inner')
 		->join($this->tableUni, $this->tableUni.'.uni_id ='.$this->tableAcm.'.uni_id ','inner')
 		->where($this->tableAcm.".acm_dDateExp >=",$date)
-		->where($this->tableAcm.".acm_iSta",2)
-		->where($this->tableAcm.".acm_iHos",0)
+		->where($this->tableAcm.".acm_iSta",1)
+		->where($this->tableAcm.".acm_iHos",1)
 		->order_by($this->tableAcm.".acm_id","desc")
 		->get($this->tableAcm)->result();
 	}		
