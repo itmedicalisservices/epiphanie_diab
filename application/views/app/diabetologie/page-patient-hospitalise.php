@@ -16,7 +16,7 @@
 
 
 <?php $liste = $this->md_patient-> sejour_acm($acm_id); ?>
-<?php $listeMed = $this->md_pharmacie->liste_medicament(); ?>
+<?php $listeMed = $this->md_pharmacie->liste_medicament2(); ?>
 <?php //$listeExamenCardio = $this->md_parametre->liste_cardiologiques_actifs(); ?>
 <?php //$listeExamenRhum = $this->md_parametre->liste_rhumatologies_actifs(); ?>
 <?php //$listeExamenGyne = $this->md_parametre->liste_gynecologies_actifs(); ?>
@@ -32,6 +32,7 @@
 <?php $listeActeLabo = $this->md_parametre->liste_acts_laboratoires_actifs(); ?>
 <?php $listeConstante = $this->md_patient->liste_constante_vitale($acm_id); ?>
 <?php $listeEncours = $this->md_patient->liste_acm_dossier_patient($acm->pat_id,date("Y-m-d H:i:s")); ?>
+<?php $listeDocument = $this->md_patient->liste_document_patient($acm_id); ?>
 
 <?php $cptRendu = $this->md_chirurgie->recup_compte_rendu_hos($hos->hos_iPop); ?>
 
@@ -140,7 +141,14 @@
 							<li class="nav-item"><a class="nav-link" data-toggle="tab" id="cc" href="#consultation"><b>DIABETE</b></a></li>
 							<li class="nav-item"><a class="nav-link" data-toggle="tab" id="hp" href="#hypophyse"><b>THYROÏDE/HYPOPHYSE</b></a></li>
 							<li class="nav-item"><a class="nav-link" data-toggle="tab" id="or" href="#ordonnance"><b>ORDONNANCE</b></a></li>
+							
+							
+							<!--<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#complement"><b> FILE ACTIVE</b></a></li>-->
+                        </ul>
+						<ul class="nav nav-tabs" role="tablist" style="font-size:14px">
 							<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#labo"><b>LABORATOIRE</b></a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#soins" id="so"><b>Soins Infirmiers</b></a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#document"><b>DOCUMENT</b></a></li>
 							<!--<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#complement"><b> FILE ACTIVE</b></a></li>-->
                         </ul> 
                         <!-- Tab panes -->
@@ -398,7 +406,7 @@
 										<b>Tension Art.:</b>
 										<?php echo $constante->con_iTensionSys.'/'.$constante->con_iTensionDia.'mmHg';?>
 									</div>									
-									<div class="col-sm-3">
+									<div class="col-sm-3">              
 										<b>Poids:</b>
 										<?php echo $constante->con_fPoids.'Kg';?>
 									</div>									
@@ -505,8 +513,78 @@
 									<?php }?>
 								<?php }?>
 								</div>
-
                             </div>
+							
+							
+							<div role="tabpanel" class="tab-pane" id="document">
+								
+                                <div class="header" style="margin-top:45px">
+									<h2>Ajout de document medicaux <small>renseignez tous les champs marqués par des (*)</small> </h2>
+									
+								</div>
+								
+								<div class="body">
+									
+									<form id="form-document">
+										<div class="row clearfix">
+											<div class="col-sm-12 retour-document"></div>
+											<div class="col-sm-12 retour-documentFinal"></div>
+											<input type="hidden" value="<?php echo $acm_id; ?>" name="id"/>
+											<input type="hidden" value="<?php echo $patient->pat_id; ?>" name="pat"/>
+											<div class="col-sm-6">
+												<div class="form-group">
+													
+													<div class="form-line">
+														<label style="color:#000">Libelle du document</label>
+														<input type="text"  name="lib" class="form-control obligatoire lib" />
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="fallback" style="margin-top:25px;">
+														<label style="color:#000">Selectionnez le document</label>
+														<input type="file" value="<?php if(!is_null($constante)){echo $constante->con_iTensionSys;}?>" name="link" class="form-control obligatoire" >
+												</div>
+											</div>
+											
+										</div>
+										
+										<div class="row clearfix">
+											
+											<div class="col-sm-12">
+												<button type="button" class="btn btn-raised bg-blue-grey" id="addDocument">Enregistrer</button>
+											</div>
+										</div>
+									</form>
+								</div>
+								
+								<div class="header" style="margin-top:45px">
+									<h5>Liste des documents medicaux </h5>
+								</div>
+								<div class="body table-responsive" id="dossier">
+									<table id="" class="table table-bordered table-striped table-hover">
+										<thead>
+											<tr>
+												<th>Libélle</th>
+												<th style="width:10px;">Action</th>
+											</tr>
+										</thead>
+									   
+										<tbody>
+										<?php foreach($listeDocument AS $d){ ?>
+											<tr>
+												<td><?php echo $d->doc_sLibelle; ?></td>
+												<td class="text-center">
+													<a target="blank" href="<?php echo base_url($d->doc_sLink); ?>"><b>Voir</b></a>
+												</td>
+											</tr>
+										<?php } ?>
+										</tbody>
+									</table>
+								</div>
+                            </div>
+							
 							<div role="tabpanel" class="tab-pane" id="consultation">
                                 <div class="header" style="margin-top:45px">
 									<h2>Faire une consultation du diabète<small>renseignez tous les champs marqués par des (*)</small> </h2>
@@ -1635,9 +1713,11 @@
             var medi 	            = document.getElementById('medi').value;
             var forme 	            = document.getElementById('forme').value;
             var dosage 	            = document.getElementById('dosage').value;
-			
+            var typeRenew 	        = document.getElementById('typeRenew').value;
+            var typeFreq 	        = document.getElementById('typeFreq').value;
+			// alert(qte);
 			if(med !="autre"){
-				if(med == '' || qte == ''|| duree == ''|| pos == '') {
+				if(med == '' || qte == ''|| duree == ''|| pos == ''|| typeRenew == ''|| typeFreq == '') {
 					alert('Veuillez renseigner le champs.');	
 				}
 				else {
@@ -1647,6 +1727,8 @@
 					contact.duree	        = duree;
 					contact.pos	        	= pos;
 					contact.typePos	        = typePos;
+					contact.typeRenew	    = typeRenew;
+					contact.typeFreq	    = typeFreq;
 					annuaire.push(contact);
 					showListeOrdMed();	
 					document.getElementById('qte').value="";
@@ -1655,7 +1737,7 @@
 				}
 			}
 			else{
-				if(medi == '' || forme == '' || dosage == '' || qte == ''|| duree == ''|| pos == '') {
+				if(medi == '' || forme == '' || dosage == '' || qte == ''|| duree == ''|| pos == '' || typeRenew == ''|| typeFreq == ''){
 					alert('Veuillez renseigner le champs.');	
 				}
 				else {
@@ -1667,6 +1749,8 @@
 					contact.duree	        = duree;
 					contact.pos	        	= pos;
 					contact.typePos	        = typePos;
+					contact.typeRenew	    = typeRenew;
+					contact.typeFreq	    = typeFreq;
 					annuaire.push(contact);
 					showListeOrdAutre();	
 					document.getElementById('medi').value="";
@@ -1693,6 +1777,8 @@
 				contenu += '<td><input type="hidden" name="qte[]" value="'+ annuaire[i].qte+'"/>' + annuaire[i].qte + '</td>';
 				contenu += '<td><input type="hidden" name="pos[]" value="'+ annuaire[i].pos+ ' ' + annuaire[i].typePos+' /jour"/>' + annuaire[i].pos + ' ' + annuaire[i].typePos + ' /jour</td>';
 				contenu += '<td><input type="hidden" name="duree[]" value="'+ annuaire[i].duree+'"/>' + annuaire[i].duree + '</td>';
+				contenu += '<td><input type="hidden" name="renew[]" value="'+ annuaire[i].typeRenew+'"/>'+ annuaire[i].typeRenew + '</td>';
+				contenu += '<td><input type="hidden" name="freq[]" value="'+ annuaire[i].typeFreq+'"/>'+ annuaire[i].typeFreq + '</td>';
                 contenu += '<td class="text-center"><a href="javascript:();" onClick="removeOrdMed(' + i + ')" class="delete" title="Supprimer"><i class="zmdi zmdi-delete text-danger" style="font-size:20px"></i></a></td>';
                 contenu += '</tr>';
             }
@@ -1790,7 +1876,7 @@
 			// alert(contenu);
         }
     
-        </script>
+</script>
 		
 		
 		

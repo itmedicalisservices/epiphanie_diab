@@ -24,13 +24,16 @@
 <?php $aller = $this->md_parametre->liste_allergie_actifs(); ?>
 <?php $prof = $this->md_parametre->liste_activite_professionnelle_actifs(); ?>
 <?php $listespecificationmal = $this->md_parametre->liste_specification_maladie_actifs(); ?>
+
 <?php $listeEncours = $this->md_patient->liste_acm_dossier_patient($acm->pat_id,date("Y-m-d H:i:s"));
+
 $rdv = $this->md_rdv->liste_de_mes_rdv();
 $odij = date("Y-m-d"); $heure = date("H:i:s");
  
  //$test = $this->md_patient->montant_par_medecin();
 // $email = $this->md_patient->retourEmail();
 ?>
+<?php $listeDocument = $this->md_patient->liste_document_patient($acm_id); ?>
 <?php $listedgq = $this->md_parametre->liste_diagnostique_actifs(); ?>
 
 <section class="content profile-page"><?php //var_dump($email);?>
@@ -86,6 +89,7 @@ $odij = date("Y-m-d"); $heure = date("H:i:s");
                         <ul class="nav nav-tabs" role="tablist" style="font-size:14px">
                             <li class="nav-item"><a class="nav-link active"data-toggle="tab" href="#rapport"><b>RAPPORT</b></a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#constante"><b>PRISE DE CONSTANTES</b></a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#document"><b>DOCUMENT</b></a></li>
                            <!--<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#diabete"><b>DIABETE</b></a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#complement"><b>FACTEURS DE RISQUE</b></a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#details"><b>FILE ACTIVE</b></a></li>-->
@@ -148,6 +152,75 @@ $odij = date("Y-m-d"); $heure = date("H:i:s");
 								</div>
                             </div>
 							
+							
+							<div role="tabpanel" class="tab-pane" id="document">
+								
+                                <div class="header" style="margin-top:45px">
+									<h2>Ajout de document medicaux <small>renseignez tous les champs marqués par des (*)</small> </h2>
+									
+								</div>
+								
+								<div class="body">
+									
+									<form id="form-document">
+										<div class="row clearfix">
+											<div class="col-sm-12 retour-document"></div>
+											<div class="col-sm-12 retour-documentFinal"></div>
+											<input type="hidden" value="<?php echo $acm_id; ?>" name="id"/>
+											<input type="hidden" value="<?php echo $patient->pat_id; ?>" name="pat"/>
+											<div class="col-sm-6">
+												<div class="form-group">
+													
+													<div class="form-line">
+														<label style="color:#000">Libelle du document</label>
+														<input type="text"  name="lib" class="form-control obligatoire lib" />
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="fallback" style="margin-top:25px;">
+														<label style="color:#000">Selectionnez le document</label>
+														<input type="file" value="<?php if(!is_null($constante)){echo $constante->con_iTensionSys;}?>" name="link" class="form-control obligatoire" >
+												</div>
+											</div>
+											
+										</div>
+										
+										<div class="row clearfix">
+											
+											<div class="col-sm-12">
+												<button type="button" class="btn btn-raised bg-blue-grey" id="addDocument">Enregistrer</button>
+											</div>
+										</div>
+									</form>
+								</div>
+								
+								<div class="header" style="margin-top:45px">
+									<h5>Liste des documents medicaux </h5>
+								</div>
+								<div class="body table-responsive" id="dossier">
+									<table id="" class="table table-bordered table-striped table-hover">
+										<thead>
+											<tr>
+												<th>Libélle</th>
+												<th style="width:10px;">Action</th>
+											</tr>
+										</thead>
+									   
+										<tbody>
+										<?php foreach($listeDocument AS $d){ ?>
+											<tr>
+												<td><?php echo $d->doc_sLibelle; ?></td>
+												<td class="text-center">
+													<a target="blank" href="<?php echo base_url($d->doc_sLink); ?>"><b>Voir</b></a>
+												</td>
+											</tr>
+										<?php } ?>
+										</tbody>
+									</table>
+								</div>
+                            </div>
 							
 							<div role="tabpanel" class="tab-pane" id="complement">
 								 <div class="header" style="">

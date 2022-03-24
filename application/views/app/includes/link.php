@@ -408,5 +408,10 @@
 		//RABY
 			var enssembleExam = <?php echo json_encode(site_url('impression/enssembleExam')); ?>;
 			
+			
+			
+			
+			var ajoutDocument = <?php echo json_encode(site_url('hospitalisation/ajoutDocument')); ?>;
+			
 		//RABY
 	</script>

@@ -112,6 +112,7 @@ class Md_patient extends CI_Model {
 	
 	protected $tableCdc = "epiphanie_diab.t_constante_donnee_clinique_cdc";
 	protected $tableFlt = "epiphanie_diab.t_fonctionalite_flt";
+	protected $tableDoc = "epiphanie_diab.t_document_doc";
 	
 	
 	
@@ -3020,6 +3021,15 @@ class Md_patient extends CI_Model {
 	}
 	
 	
+	public function liste_document_patient($acm)
+	{
+		return $this->db
+		->join($this->tableAcm, $this->tableAcm.'.acm_id ='.$this->tableDoc.'.acm_id ','inner')
+		->where($this->tableDoc.".acm_id",$acm)
+		->get($this->tableDoc)->result();
+	}
+	
+	
 	public function liste_acm_dossier($date,$ser2)
 	{
 		return $this->db
@@ -4764,7 +4774,12 @@ class Md_patient extends CI_Model {
 		$recup = $this->db->order_by("img_id","desc")->get($this->tableImg)->row();
 		return $recup;
 	}
-				
+	public function ajout_Document($data){
+		return $this->db->insert($this->tableDoc,$data);;
+	}
+		
+
+	
 	public function ajout_exploration($data){
 		$this->db->insert($this->tableEfc,$data);
 		$recup = $this->db->order_by("efc_id","desc")->get($this->tableEfc)->row();

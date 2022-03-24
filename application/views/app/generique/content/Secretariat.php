@@ -1,6 +1,7 @@
 ﻿
 <?php 
-	$listeEncours = $this->md_patient->liste_acm_encours2(date("Y-m-d H:i:s"));
+	//$listeEncours = $this->md_patient->liste_acm_encours2(date("Y-m-d H:i:s"));
+	$listeEncours = $this->md_patient->liste_hospitalisation(date("Y-m-d H:i:s"));
  ?>
 <section class="content home">
     <div class="container-fluid">

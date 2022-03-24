@@ -339,6 +339,56 @@ $("#consult").click(function(){
 	return false;
 });
 
+$("#addDocument").click(function(){
+		var nbError = 0;
+		$("form#form-document .form-control.obligatoire").each(function(){
+			if($.trim($(this).val()) == ""){
+				$(this).parent("div").addClass("has-error");
+				$(this).addClass("obligatoire-color");
+				nbError++;
+			}
+			else{
+				$(this).parent("div").removeClass("has-error");
+				$(this).removeClass("obligatoire-color");
+			}
+		});
+		
+		
+		if(nbError == 0){
+
+			var data = $('form#form-document').serialize();
+			var form = $('form#form-document').get(0);
+			var formData = new FormData(form);
+			// alert(data);
+			$.ajax({
+				type:"POST",
+				url: ajoutDocument,
+				contentType:false,
+				processData:false,
+				data:formData,
+				async:true,
+				error:function(xhr, status, error){
+					alert(xhr.responseText);
+				}
+				
+			})
+			.done(function(retour){
+				alert(retour);
+				if(retour == 'ok'){
+					location.reload(true);
+				}else{
+					$(".retour-document").addClass("alert alert-danger").html(retour);
+				}
+				
+			});
+		}
+		else{
+			$(".retour-document").addClass("alert alert-danger").html("Veuillez remplir tous les champs marqués par un astérisque (*)");
+		}			
+				
+	return false;
+});
+
 
 $(".addAvis").click(function(){
 	// alert();

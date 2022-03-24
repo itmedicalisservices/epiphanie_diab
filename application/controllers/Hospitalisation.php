@@ -151,6 +151,86 @@ class Hospitalisation extends CI_Controller {
 	}
 	
 	
+	
+	public function ajoutDocument()
+	{
+		date_default_timezone_set('Africa/Brazzaville');
+		$data = $this->input->post();
+		if(empty($data)){
+			echo "erreur";
+		}
+		else{
+			if( $_FILES["link"]["name"]!=""){
+				$verifTaille = $this->md_config->sizeImage($_FILES["link"],500);
+				if(!$verifTaille){
+					echo "La taille du document ne doit pas dépasser les 500 Ko";
+				}
+				else{
+					$config["upload_path"] =  './assets/documents/';
+					$config["allowed_types"] = 'png|jpg|jpeg|PNG|JPG|JPEG|pdf|PDF|docx|DOCX';
+					$nomImage= time()."-".$_FILES["link"]["name"];
+					$config["file_name"] = $nomImage; 
+					$verifImage = $this->md_config->uploadFichier($_FILES["link"]);
+					
+					if(!$verifImage){
+						echo "Les formats de document autorisés sont .png,jpg,jpeg,PNG,JPG,JPEG,pdf,PDF,docx,DOCX";
+					}
+					else{
+						$this->load->library('upload',$config);
+					
+						if($this->upload->do_upload("link")){
+							$doc=$this->upload->data();
+							$data["link"]="assets/documents/".$doc['file_name'];
+						}
+						
+						
+						/*$verif = $this->md_patient->verif_sejour($data["id"],date("Y-m-d"));
+						if(!$verif){
+							$donneesSejour = array(
+								"acm_id"=>$data["id"],
+								"sea_dDate"=>date("Y-m-d")
+							);
+							$sejour = $this->md_patient->ajout_sejour_acm($donneesSejour);
+						}
+						else{
+							$sejour = $verif;
+						}*/
+						
+						/*if($data['indication'] == ""){
+							$data['indication']=NULL;
+						}*/
+						
+						$donnees = array(
+							"doc_iSta"=>1,
+							"doc_sLibelle"=>$data['lib'],
+							"doc_sLink"=>$data['link'],
+							"doc_dDate"=>date("Y-m-d H:i:s"),
+							"acm_id"=>$data["id"],
+							"pat_id"=>$data['pat'],
+							"per_id"=>$this->session->epiphanie_diab
+						);
+						$insert = $this->md_patient->ajout_Document($donnees);
+						$patient = $this->md_patient->recup_patient($data["pat"]);
+						$log = array(
+							"log_iSta"=>0,
+							"per_id"=>$this->session->epiphanie_diab,
+							"log_sTable"=>"t_document_doc",
+							"log_sIcone"=>"nouveau document",
+							"log_sAction"=>"a ajouter un nouveau document",
+							"log_sActionDetail"=>"Le document medical du patient : ".$patient->pat_sNom." ".$patient->pat_sPrenom."(".$patient->pat_sMatricule.") a été ajouter ",
+							"log_dDate"=>date("Y-m-d H:i:s")
+						);
+						$this->md_connexion->rapport($log);
+						echo "ok";
+					}
+				}
+			}
+			
+		}
+	
+	}
+	
+	
 	public function priseEnCharge()
 	{
 		date_default_timezone_set('Africa/Brazzaville');

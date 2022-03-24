@@ -1039,7 +1039,7 @@ class Consultation extends CI_Controller {
 			
 			if($insert){
 				$recupAct = $this->md_patient->recup_last_acte_medical();
-				$verif = $this->md_patient->verif_sejour($recupAct->acm_id,date("Y-m-d"));
+				/*$verif = $this->md_patient->verif_sejour($recupAct->acm_id,date("Y-m-d"));
 				if(!$verif){
 					$donneesSejour = array(
 						"acm_id"=>$recupAct->acm_id,
@@ -1049,11 +1049,11 @@ class Consultation extends CI_Controller {
 				}
 				else{
 					$sejour = $verif;
-				}
+				}*/
 				$donneeHos = array(
 					"hos_iSta"=>1,
 					"acm_id"=>$recupAct->acm_id,
-					"sea_id"=>$sejour->sea_id,
+					//"sea_id"=>$sejour->sea_id,
 					"lit_id"=>$data["lit"],
 					"hos_sType"=>$data["type"],
 					"hos_sMotif"=>$data["motif"],
