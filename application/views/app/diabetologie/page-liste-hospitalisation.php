@@ -1,7 +1,7 @@
 ﻿<?php include(dirname(__FILE__) . '/../includes/header.php'); ?>
 <?php 
 	
-	$listeEncours = $this->md_patient->liste_hospitalisation();
+	$listeEncours = $this->md_patient->liste_hospitalisation2();
 	
  ?>
 <section class="content home">

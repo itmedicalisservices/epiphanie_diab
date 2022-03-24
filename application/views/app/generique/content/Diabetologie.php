@@ -67,7 +67,7 @@
 
 <?php 
 	
-	$listeEncours = $this->md_patient->liste_hospitalisation();
+	$listeEncours = $this->md_patient->liste_hospitalisation2();
 	
  ?>
 <section class="content home">

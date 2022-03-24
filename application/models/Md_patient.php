@@ -3706,6 +3706,26 @@ class Md_patient extends CI_Model {
 		->order_by($this->tableHos.".hos_dDate","desc")
 		->get($this->tableHos)->result();
 	}	
+	
+	public function liste_hospitalisation2()
+	{
+		return $this->db
+		->join($this->tableLit, $this->tableLit.'.lit_id ='.$this->tableHos.'.lit_id ','inner')
+		->join($this->tableCha, $this->tableCha.'.cha_id ='.$this->tableLit.'.cha_id ','inner')
+		->join($this->tableUni, $this->tableUni.'.uni_id ='.$this->tableCha.'.uni_id ','inner')
+		->join($this->tableSer, $this->tableSer.'.ser_id ='.$this->tableUni.'.ser_id ','inner')
+		->join($this->tableAcm, $this->tableAcm.'.acm_id ='.$this->tableHos.'.acm_id ','inner')
+		// ->join($this->tableElf, $this->tableElf.'.acm_id ='.$this->tableAcm.'.acm_id ','inner')
+		// ->join($this->tableFac, $this->tableElf.'.fac_id ='.$this->tableFac.'.fac_id ','inner')
+		->join($this->tablePat, $this->tablePat.'.pat_id ='.$this->tableAcm.'.pat_id ','inner')
+		->join($this->tableLac, $this->tableLac.'.lac_id ='.$this->tableAcm.'.lac_id ','inner')
+		->where($this->tableHos.".hos_iSta",1)
+		->order_by($this->tableHos.".hos_dDate","desc")
+		->get($this->tableHos)->result();
+	}	
+	
+	
+	
 			
 	public function liste_maternite_cloture()
 	{
