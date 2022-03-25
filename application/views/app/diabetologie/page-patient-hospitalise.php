@@ -519,50 +519,10 @@
 							<div role="tabpanel" class="tab-pane" id="document">
 								
                                 <div class="header" style="margin-top:45px">
-									<h2>Ajout de document medicaux <small>renseignez tous les champs marqués par des (*)</small> </h2>
-									
+									<h2>Liste des documents medicaux </h2>
+									<button type="button" class="btn btn-raised bg-blue-grey pull-right" style="color:white; font-size:13px" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"></i>  Ajouter</button>
 								</div>
-								
-								<div class="body">
-									
-									<form id="form-document">
-										<div class="row clearfix">
-											<div class="col-sm-12 retour-document"></div>
-											<div class="col-sm-12 retour-documentFinal"></div>
-											<input type="hidden" value="<?php echo $acm_id; ?>" name="id"/>
-											<input type="hidden" value="<?php echo $patient->pat_id; ?>" name="pat"/>
-											<div class="col-sm-6">
-												<div class="form-group">
-													
-													<div class="form-line">
-														<label style="color:#000">Libelle du document</label>
-														<input type="text"  name="lib" class="form-control obligatoire lib" />
-														
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-6">
-												<div class="fallback" style="margin-top:25px;">
-														<label style="color:#000">Selectionnez le document</label>
-														<input type="file" value="<?php if(!is_null($constante)){echo $constante->con_iTensionSys;}?>" name="link" class="form-control obligatoire" >
-												</div>
-											</div>
-											
-										</div>
-										
-										<div class="row clearfix">
-											
-											<div class="col-sm-12">
-												<button type="button" class="btn btn-raised bg-blue-grey" id="addDocument">Enregistrer</button>
-											</div>
-										</div>
-									</form>
-								</div>
-								
-								<div class="header" style="margin-top:45px">
-									<h5>Liste des documents medicaux </h5>
-								</div>
-								<div class="body table-responsive" id="dossier">
+								<div class="body table-responsive" >
 									<table id="" class="table table-bordered table-striped table-hover">
 										<thead>
 											<tr>
@@ -1643,6 +1603,55 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document" style="margin-top:20px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="largeModalLabel">Ajouter un document médical</h4>
+            </div>
+            <div class="modal-body" style="max-height:500px; overflow:auto;">
+			
+				 <div class="col-lg-12 col-md-12 col-sm-12">
+					<div class="col-sm-12 retour-document"></div>
+					<div class="card">
+						<form id="form-document">
+							<div class="body table-responsive" id="dossier">
+								<table id="" class="table table-bordered ">
+									<thead>
+										<tr>
+											<th>Libélle du document (*)</th>
+											<th>Selectionnez le document (*)</th>
+										</tr>
+									</thead>
+								   
+									<tbody>
+										<tr>
+											<td>
+												<input type="hidden" value="<?php echo $acm_id; ?>" name="id"/>
+												<input type="hidden" value="<?php echo $patient->pat_id; ?>" name="pat"/>
+												<input type="text"  name="lib" class="form-control obligatoire lib " style="border:1px solid " />
+											</td>
+											<td>
+												<input type="file" name="link" class="form-control obligatoire" />
+											</td>
+										</tr>
+										
+									</tbody>
+								</table>
+							</div>	
+							<button type="button" class="btn btn-raised bg-blue-grey" id="addDocument">Enregistrer</button>
+						</form>
+					</div>
+				</div>
+			
+			</div>
+          
+        </div>
+    </div>
+</div>
+
 
 <div class="modal fade" id="fin_hos" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
