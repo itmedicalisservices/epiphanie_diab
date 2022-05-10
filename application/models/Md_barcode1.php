@@ -344,8 +344,8 @@ if ( !class_exists( "Md_barcode" )){
 			$this->CALMZONE = 10;
 			$this->HR = 'AUTO';
 			$this->SHOWTYPE = 'Y';
-			$this->FOREGROUND = hexdec("000000");
-			$this->BACKGROUND = hexdec("FFFFFF");
+			$this->FOREGROUND = hexdec('#000000');
+			$this->BACKGROUND = hexdec('#FFFFFF');
 			$this->FILETYPE = 'PNG';
 			$this->ENCODED = '';
 			// detruire eventuellement l'image existante
@@ -393,9 +393,8 @@ if ( !class_exists( "Md_barcode" )){
 		/**
 		* Set Colors
 		*/
-		function setColors($fg, $bg="FFFFFF")
+		function setColors($fg, $bg='#FFFFFF')
 		{
-			var_dump($fg);
 			$this->FOREGROUND = hexdec($fg);
 			$this->BACKGROUND = hexdec($bg);
 		}
@@ -438,7 +437,7 @@ if ( !class_exists( "Md_barcode" )){
 					$i = 0;
 					while (($carok) && ($i<$long))
 					{
-					$tmp = ord( $this->CODE[$i] ) ;
+						$tmp = ord( $this->CODE{$i} ) ;
 						if (($tmp < 32) OR ($tmp > 126)) $carok = false;
 						$i++;
 					}
@@ -466,7 +465,7 @@ if ( !class_exists( "Md_barcode" )){
 
 						for ($index = ($long - 1); $index > 0; $index--)
 						{
-							$checksum += intval($this->CODE[$index-1]) * $factor ;
+							$checksum += intval($this->CODE{$index-1}) * $factor ;
 							$factor = 4 - $factor ;
 						}
 						$cc = ( (1000 - $checksum) % 10 ) ;
@@ -483,7 +482,7 @@ if ( !class_exists( "Md_barcode" )){
 					{
 
 						for ($index = $long; $index > 0; $index--) {
-							$checksum += intval($this->CODE[$index-1]) * $factor ;
+							$checksum += intval($this->CODE{$index-1}) * $factor ;
 							$factor = 4 - $factor ;
 						}
 						$cc = ( ( 1000 - $checksum ) % 10 ) ;
@@ -511,7 +510,7 @@ if ( !class_exists( "Md_barcode" )){
 						$factor = 3;
 						$long = strlen($this->CODE);
 						for ($i = $long; $i > 0; $i--) {
-						$checksum += intval($this->CODE[$i-1]) * $factor;
+							$checksum += intval($this->CODE{$i-1}) * $factor;
 							$factor = 4-$factor;
 						}
 						$checksum = 10 - ($checksum % 10);
@@ -556,7 +555,7 @@ if ( !class_exists( "Md_barcode" )){
 						$factor = 1;
 						$tmp = strlen($this->CODE);
 						for ($i = 0; $i < $tmp; $i++) {
-							$checksum += intval($this->CODE[$i]) * $factor;
+							$checksum += intval($this->CODE{$i}) * $factor;
 							$factor++;
 							if ($factor > 10) $factor = 1;
 						}
@@ -578,7 +577,7 @@ if ( !class_exists( "Md_barcode" )){
 						$factor = 1;
 						$tmp = strlen($this->CODE);
 						for ($i = $tmp; $i > 0; $i--) {
-							$tmp = $this->CODE[$i-1];
+							$tmp = $this->CODE{$i-1};
 							if ($tmp == "-") $tmp = 10;
 							else $tmp = intval($tmp);
 							$checksum += ($tmp * $factor);
@@ -603,7 +602,7 @@ if ( !class_exists( "Md_barcode" )){
 						$checksum = 0;
 						$tmp = strlen($this->CODE);
 						for ($i = $tmp; $i > 0; $i--) {
-							$checksum += intval($this->CODE[$i-1]);
+							$checksum += intval($this->CODE{$i-1});
 						}
 						$checksum = 10 - ($checksum % 10);
 						if($checksum == 10) $checksum = 0;
@@ -671,7 +670,7 @@ if ( !class_exists( "Md_barcode" )){
 
 			// Copie de la chaine dans un tableau
 			$a_tmp = array();
-			for($i = 0; $i < $lencode ; $i++) $a_tmp[$i] = $this->FULLCODE[$i];
+			for($i = 0; $i < $lencode ; $i++) $a_tmp[$i] = $this->FULLCODE{$i};
 
 			switch( $this->TYPE ) {
 
@@ -858,7 +857,7 @@ if ( !class_exists( "Md_barcode" )){
 				}
 
 				// Gravure des barres
-				$fill_color = $this->ENCODED[$i];
+				$fill_color = $this->ENCODED{$i};
 				switch ($this->TYPE)
 				{
 				  case "POSTNET" :
@@ -915,7 +914,7 @@ if ( !class_exists( "Md_barcode" )){
 				imagestring($this->IH, 1, ($this->WIDTH)-($ifw * 9)-2, $this->HEIGHT - $ifh, "Pitoo.com", $color[2]);
 			  break;
 			  case "EAN" :
-			if ($text != '') if((strlen($this->FULLCODE) > 10) && ($this->FULLCODE[0] > 0)) imagestring($this->IH, 3, $txtPosX-7, $this->HEIGHT - $ifh, substr($this->FULLCODE,-13,1), $color[1]);
+					if ($text != '') if((strlen($this->FULLCODE) > 10) && ($this->FULLCODE{0} > 0)) imagestring($this->IH, 3, $txtPosX-7, $this->HEIGHT - $ifh, substr($this->FULLCODE,-13,1), $color[1]);
 			  case "UPC" :
 				if ($text != '')
 				{
@@ -942,7 +941,7 @@ if ( !class_exists( "Md_barcode" )){
 			// impression du type de code (si demandé)
 			if ($this->SHOWTYPE == 'Y')
 			{
-				if (($this->TYPE == "EAN") AND (strlen($this->FULLCODE) > 10) AND ($this->FULLCODE[0] > 0) AND ($text != ''))
+				if (($this->TYPE == "EAN") AND (strlen($this->FULLCODE) > 10) AND ($this->FULLCODE{0} > 0) AND ($text != ''))
 				{
 					imagestringup($this->IH, 1, 0, $this->HEIGHT - 12, $this->TYPE, $color[2]);
 				}
@@ -1012,8 +1011,8 @@ if (strpos($_SERVER['PHP_SELF'], 'Md_barcode.php'))
 	$width = 0;
 	$readable = 'N';
 	$showtype = 'N';
-	$color = "000000";
-	$bgcolor = "FFFFFF";
+	$color = '#000000';
+	$bgcolor = '#FFFFFF';
 	$zoom = 1;
 
 	extract($_GET);

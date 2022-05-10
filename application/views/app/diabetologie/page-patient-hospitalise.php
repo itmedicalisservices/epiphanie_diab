@@ -112,7 +112,7 @@
                             <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#constante"><b>Constante vitale</b></a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#complement"><b>Antécédents</b></a></li>
 							<li class="nav-item"><a class="nav-link" data-toggle="tab" id="or" href="#ordonnance"><b> Ordonnance</b></a></li>
-                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#soins" id="so"><b>Soins Infirmiers</b></a></li>
+                           
                         </ul>
 						 <ul class="nav nav-tabs" role="tablist" style="font-size:14px">
                             <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#imagerie" id="in"><b>Examen imagerie</b></a></li>
@@ -136,21 +136,45 @@
 							<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#cptRendu"><b>Voir le compte rendu</b></a></li>
 							<?php }?>
                         </ul> -->
-						 <ul class="nav nav-tabs" role="tablist" style="font-size:14px">
+						<ul class="nav nav-tabs" role="tablist" style="font-size:14px">
                             <li class="nav-item"><a class="nav-link active"data-toggle="tab" href="#rapport"><b>RAPPORT </b></a></li><br><br>
 							<li class="nav-item"><a class="nav-link" data-toggle="tab" id="cc" href="#consultation"><b>DIABETE</b></a></li>
 							<li class="nav-item"><a class="nav-link" data-toggle="tab" id="hp" href="#hypophyse"><b>THYROÏDE/HYPOPHYSE</b></a></li>
 							<li class="nav-item"><a class="nav-link" data-toggle="tab" id="or" href="#ordonnance"><b>ORDONNANCE</b></a></li>
+                        </ul>
+						
+						<ul class="nav nav-tabs" role="tablist" style="font-size:14px">
+						
+							<li class="nav-item"><a class="nav-link" data-toggle="tab" id="cc" href="#observation"><b>OBSERVATION MEDICALE</b></a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="tab" id="cc" href="#diagnostique"><b>DISCUSSION DIAGNOSTIQUE</b></a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="tab" id="cc" href="#Exdiab"><b>EXAMEN CLINIQUE DIABETE</b></a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="tab" id="cc" href="#lettre"><b>LETTRE DE SORTIE</b></a></li>
 							
-							
-							<!--<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#complement"><b> FILE ACTIVE</b></a></li>-->
                         </ul>
 						<ul class="nav nav-tabs" role="tablist" style="font-size:14px">
+							<li class="nav-item"><a class="nav-link" data-toggle="tab" id="cc" href="#pied"><b>PIED DIABETIQUE</b></a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#complication"><b>COMPLICATION DEGENERATIVES</b></a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#lesion" id="so"><b>LESION</b></a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#examen" id="so"><b>EXAMEN CLINIQUE PIED DIABETIQUE</b></a></li>
+							<!--<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#complement"><b> FILE ACTIVE</b></a></li>-->
+                        </ul>
+						
+						<ul class="nav nav-tabs" role="tablist" style="font-size:14px">
+							<li class="nav-item"><a class="nav-link" data-toggle="tab" id="cc" href="#complementaires"><b>EXAMENS COMPLEMENTAIRES</b></a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="tab" id="cc" href="#prise"><b>PRISE EN CHARGE</b></a></li>
+							<!--<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#complement"><b> FILE ACTIVE</b></a></li>-->
+                        </ul> 
+						
+						<ul class="nav nav-tabs" role="tablist" style="font-size:14px">
 							<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#labo"><b>LABORATOIRE</b></a></li>
-							<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#soins" id="so"><b>Soins Infirmiers</b></a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#soins" id="so"><b>SOINS INFIERMIERS</b></a></li>
 							<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#document"><b>DOCUMENT</b></a></li>
 							<!--<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#complement"><b> FILE ACTIVE</b></a></li>-->
                         </ul> 
+						
+						
+						
+						
                         <!-- Tab panes -->
                         <div class="tab-content">
 							<?php 
@@ -776,7 +800,2093 @@
 									</form>
 								</div>
                             </div>	
-
+							
+							
+							<div role="tabpanel" class="tab-pane" id="observation">
+                                <div class="header" style="margin-top:45px">
+									<h2>Observation Médicale<small>renseignez tous les champs marqués par des (*)</small> </h2>
+								</div>
+								<div class="body">
+									<form id="form-c">
+										<div class="col-sm-12 retour-c"></div>
+										<div class="row clearfix">
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Motif d'hospitalisation *</label>
+														<textarea class="form-control obligatoire" rows="10" name="motif"><?php if($consultation){echo $consultation->csl_sMotif ;}?></textarea>
+														<input type="hidden" value="<?php echo $acm->pat_id; ?>" name="pat">
+														<input type="hidden" value="<?php echo $acm_id; ?>" name="id">
+														<input type="hidden" value="<?php echo $patient->pat_id; ?>" name="pat">
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Anamnèse</label>
+														<textarea class="form-control " rows="10" name="an"><?php if($consultation){echo $consultation->csl_sAnamnese ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<b style="color:#000">Antécédents</b>
+											</div>											
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Antécédents medicaux</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Antécédents Chirurgicaux</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Antécédents Gynéco-obstétricaux</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Toxico-allergique</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Tabagisme</option>
+															<option value="2">Alcool</option>
+															<option value="3">Allergie</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<b style="color:#000">Histoire du diabète</b>
+											</div>
+											
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Date découvert</label>
+														<textarea class="form-control " rows="10" name="autrediagnos"><?php if($consultation){echo $consultation->csl_sOtherDgq ;}?></textarea>
+													</div>
+												</div>
+											</div>	
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Mise initialement sous</label>
+														<textarea class="form-control " rows="10" name="autrediagnos"><?php if($consultation){echo $consultation->csl_sOtherDgq ;}?></textarea>
+													</div>
+												</div>
+											</div>	
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Suivi</label>
+														<textarea class="form-control " rows="10" name="autrediagnos"><?php if($consultation){echo $consultation->csl_sOtherDgq ;}?></textarea>
+													</div>
+												</div>
+											</div>	
+											
+											<div class="col-sm-4">
+												<label style="color:#000;" >Equilibre glycémique</label>
+												
+												<div class="row">
+													<div class="col-lg-6">
+														<div class="form-group">
+															<div class="form-line">
+																<textarea class="form-control " rows="10" name="autrediagnos" placeholder="HbA1c"><?php if($consultation){echo $consultation->csl_sOtherDgq ;}?></textarea>
+															</div>
+														</div>
+														
+													</div>
+													<div class="col-lg-6">
+														<div class="form-group">
+															<div class="form-line">
+																<textarea class="form-control " rows="10" name="autrediagnos" placeholder="Glycémies"><?php if($consultation){echo $consultation->csl_sOtherDgq ;}?></textarea>
+															</div>
+														</div>
+													</div>
+												</div>
+													
+											</div>	
+											
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Histoire pondérale</label>
+													<select name="micro" class="form-control" style="padding-left:5px">
+														<option value=""> --- Sélectionner --- </option>
+														<option value="1">Régime</option>
+														<option value="2">Activité physique</option>
+														<option value="3">Auto surveillance et autocontrôle</option>
+														<option value="4">Injection d’insuline</option>
+														<option value="5">Respect du zoning</option>
+														<option value="6">Changement des seringues</option>
+													</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Complications aigues</label>
+													<select name="micro" class="form-control" style="padding-left:5px">
+														<option value=""> --- Sélectionner --- </option>
+														<option value="1">Hypoglycémie</option>
+														<option value="2">Cétose</option>
+														
+													</select>
+													</div>
+												</div>
+											</div>											
+											<div class="col-sm-12">
+												<b style="color:#000">Complications chroniques</b>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Microangiopathie</label>
+													<select name="micro" class="form-control" style="padding-left:5px">
+														<option value=""> --- Sélectionner --- </option>
+														<option value="1">Rétinopathie diabétique</option>
+														<option value="2">Néphropathie diabétique</option>
+														<option value="2">Neuropathie diabétique</option>
+														<option value="2">Neuropathie périphérique</option>
+														<option value="2">Neuropathie périphérique</option>
+														<option value="2">Neuropathie autonome</option>
+														
+													</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Macroangiopathie</label>
+													<select name="micro" class="form-control" style="padding-left:5px">
+														<option value=""> --- Sélectionner --- </option>
+														<option value="1">Dyspnée d’effort</option>
+														<option value="2">Douleur thoracique</option>
+														<option value="2">AVC</option>
+														<option value="2">CIMI</option>
+													</select>
+													</div>
+												</div>
+											</div>
+											
+											<div class="col-sm-12">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Habitudes et mode de vie  *</label>
+														<textarea class="form-control obligatoire" rows="10" name="ccl"><?php if($consultation){echo $consultation->csl_sCcl ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Traitement en cours </label>
+														<textarea class="form-control obligatoire" rows="10" name="ccl"><?php if($consultation){echo $consultation->csl_sCcl ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											
+											
+										</div>
+										
+										<div class="col-sm-12 retour-c"></div>
+										<div class="row clearfix">
+											
+											<div class="col-sm-12">
+												<button type="button" class="btn btn-raised bg-blue-grey" id="consult">Enregistrer</button>
+											</div>
+										</div>
+									</form>
+								</div>
+                            </div>	
+							
+							<div role="tabpanel" class="tab-pane" id="diagnostique">
+                                <div class="header" style="margin-top:45px">
+									<h2>Diagnostique<small>renseignez tous les champs marqués par des (*)</small> </h2>
+								</div>
+								<div class="body">
+									<form id="form-c">
+										<div class="col-sm-12 retour-c"></div>
+										<div class="row clearfix">
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Type de diabète</label>
+														
+														<input type="hidden" value="<?php echo $acm->pat_id; ?>" name="pat">
+														<input type="hidden" value="<?php echo $acm_id; ?>" name="id">
+														<input type="hidden" value="<?php echo $patient->pat_id; ?>" name="pat">
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<?php foreach($listedgq AS $ld){?>
+																<?php if(!is_null($consultation->dgq_id)){?>
+																	<option value="<?php echo $ld->dgq_id; ?>" <?php if($ld->dgq_id==$consultation->dgq_id){echo 'selected="selected"';} ;?>> <?php echo $ld->dgq_sLib; ?> </option>
+																<?php }else{?>
+																	<option value="<?php echo $ld->dgq_id; ?>" > <?php echo $ld->dgq_sLib; ?> </option>
+																<?php } ?>
+															<?php } ?>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-8">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Causes de déséquilibre</label>
+														<textarea class="form-control " rows="10" name="an"><?php if($consultation){echo $consultation->csl_sAnamnese ;}?></textarea>
+													</div>
+												</div>
+											</div>
+																				
+											<div class="col-sm-12">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Risque cardiovasculaire</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<b style="color:#000">Bilan</b>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Glycémie</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Hb1Ac</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Créatinine</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Urée</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Chol total</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">HDLc</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">LDLc</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">TG</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Na<sup>+</sup></label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">K<sup>+</sup></label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">CL</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">ASAT</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3	">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">ALAT</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Acide urique </label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Microalbuminurie</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Protéinurie 24h</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Autres</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Conclusion</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">ECG</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Conclusion</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">FO</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Conclusion</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Prise en charge</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Objectifs</option>
+															<option value="2">Moyens</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-8">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Pronostic</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Evolution</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											
+										</div>
+										<div class="col-sm-12 retour-c"></div>
+										<div class="row clearfix">
+											
+											<div class="col-sm-12">
+												<button type="button" class="btn btn-raised bg-blue-grey" id="consult">Enregistrer</button>
+											</div>
+										</div>
+									</form>
+								</div>
+                            </div>	
+							
+							<div role="tabpanel" class="tab-pane" id="lettre">
+                                <div class="header" style="margin-top:45px">
+									<h2>Lettre de sortie<small>renseignez tous les champs marqués par des (*)</small> </h2>
+								</div>
+								<div class="body">
+									<form id="form-c">
+										<div class="col-sm-12 retour-c"></div>
+										<div class="row clearfix">
+											<div class="col-sm-12">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Motif d’hospitalisation </label>
+														
+														<input type="hidden" value="<?php echo $acm->pat_id; ?>" name="pat">
+														<input type="hidden" value="<?php echo $acm_id; ?>" name="id">
+														<input type="hidden" value="<?php echo $patient->pat_id; ?>" name="pat">
+														<textarea class="form-control " rows="10" name="an"><?php if($consultation){echo $consultation->csl_sAnamnese ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Antécédents Personnels</label>
+														<textarea class="form-control " rows="10" name="an"><?php if($consultation){echo $consultation->csl_sAnamnese ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Antécédents Familiaux</label>
+														<textarea class="form-control " rows="10" name="an"><?php if($consultation){echo $consultation->csl_sAnamnese ;}?></textarea>
+													</div>
+												</div>
+											</div>
+																				
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Histoire de la maladie</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Examen a l’admission</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Diagnostics évoqués</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Bilans réalisés</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Diagnostic retenu</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Evolution</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Prochain RDV</label>
+														<input type="date" class="form-control " rows="10" name="resume" />
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Auprès du  Dr</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											
+											
+										</div>
+										<div class="col-sm-12 retour-c"></div>
+										<div class="row clearfix">
+											
+											<div class="col-sm-12">
+												<button type="button" class="btn btn-raised bg-blue-grey" id="consult">Enregistrer</button>
+											</div>
+										</div>
+									</form>
+								</div>
+                            </div>	
+							
+							<div role="tabpanel" class="tab-pane" id="complication">
+                                <div class="header" style="margin-top:45px">
+									<h2>Complications dégénératives<small>renseignez tous les champs marqués par des (*)</small> </h2>
+								</div>
+								<div class="body">
+									<form id="form-comp">
+										<div class="col-sm-12 retour-comp"></div>
+										<div class="row clearfix">
+											<div class="col-sm-12">
+												<b style="color:#000">Complications dégénératives</b>
+											</div>
+											<div class="col-sm-12">
+												<label style="color:#000">Microangiopathie</label>
+												<div class="row">
+													<div class="col-sm-6">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Rétinopathie</label>
+																<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+																	<option value=""> --- Sélectionner --- </option>
+																	<option value="1">Oui</option>
+																	<option value="2">Non</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Stade</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Néphropathie</label>
+																<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+																	<option value=""> --- Sélectionner --- </option>
+																	<option value="1">Oui</option>
+																	<option value="2">Non</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Stade</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Neuropathie périphérique</label>
+																<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+																	<option value=""> --- Sélectionner --- </option>
+																	<option value="1">Oui</option>
+																	<option value="2">Non</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Neuropathie végétative </label>
+																<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+																	<option value=""> --- Sélectionner --- </option>
+																	<option value="1">Oui</option>
+																	<option value="2">Non</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-12">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Type</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<label style="color:#000">Macroangiopathie </label>
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Cardiopathie ischémique </label>
+																<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+																	<option value=""> --- Sélectionner --- </option>
+																	<option value="1">Oui</option>
+																	<option value="2">Non</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">AVC </label>
+																<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+																	<option value=""> --- Sélectionner --- </option>
+																	<option value="1">Oui</option>
+																	<option value="2">Non</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">AOMI </label>
+																<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+																	<option value=""> --- Sélectionner --- </option>
+																	<option value="1">Oui</option>
+																	<option value="2">Non</option>
+																</select>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											
+										</div>
+										<div class="col-sm-12 retour-comp"></div>
+										<div class="row clearfix">
+											<div class="col-sm-12">
+												<button type="button" class="btn btn-raised bg-blue-grey" id="complication">Enregistrer</button>
+											</div>
+										</div>
+									</form>
+								</div>
+                            </div>
+							<div role="tabpanel" class="tab-pane" id="examen">
+                                <div class="header" style="margin-top:45px">
+									<h2>Examen clinique pied diabetique<small>renseignez tous les champs marqués par des (*)</small> </h2>
+								</div>
+								<div class="body">
+									<form id="form-comp">
+										<div class="col-sm-12 retour-comp"></div>
+										<div class="row clearfix">
+											<div class="col-sm-12">
+												<b style="color:#000">Signes infectieux </b>
+											</div>
+											<div class="col-sm-12">
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Fièvre</label>
+																<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+																	<option value=""> --- Sélectionner --- </option>
+																	<option value="1">Oui</option>
+																	<option value="2">Non</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Régionaux</label>
+																<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+																	<option value=""> --- Sélectionner --- </option>
+																	<option value="1">Oui</option>
+																	<option value="2">Non</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Type</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													
+													
+												</div>
+											</div>
+											
+										</div>
+										<div class="row clearfix">
+											<div class="col-sm-12">
+												<b style="color:#000">Examen général </b>
+											</div>
+											<div class="col-sm-12">
+												<div class="row">
+													
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">TA</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Temperature</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">FC</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">FR</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Taille</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">IMC</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">TT</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">GC</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">BU</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Reste de l’examen physique</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Conclusion clinique</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													
+													
+												</div>
+											</div>
+											
+										</div>
+										
+										<div class="col-sm-12 retour-comp"></div>
+										<div class="row clearfix">
+											<div class="col-sm-12">
+												<button type="button" class="btn btn-raised bg-blue-grey" id="complication">Enregistrer</button>
+											</div>
+										</div>
+									</form>
+								</div>
+                            </div>
+							<div role="tabpanel" class="tab-pane" id="complementaires">
+                                <div class="header" style="margin-top:45px">
+									<h2>Examens complémentaires<small>renseignez tous les champs marqués par des (*)</small> </h2>
+								</div>
+								<div class="body">
+									<form id="form-comp">
+										<div class="col-sm-12 retour-comp"></div>
+										<div class="row clearfix">
+											<div class="col-sm-12">
+												<b style="color:#000">Bilan biologique</b>
+											</div>
+											<div class="col-sm-12">
+												<div class="row">
+													<div class="col-sm-6">
+														<label style="color:#000">NFS</label>
+														<div class="row">
+															<div class="col-lg-4">
+																<div class="form-group">
+																	<div class="form-line">
+																		
+																		<textarea class="form-control " rows="10" name="resume" placeholder="HB" ><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+																	</div>
+																</div>
+																
+															</div>
+															<div class="col-lg-4">
+																<div class="form-group">
+																	<div class="form-line">
+																		
+																		<textarea class="form-control " rows="10" name="resume"  placeholder="GB"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+																	</div>
+																</div>
+																
+															</div>
+															<div class="col-lg-4">
+																<div class="form-group">
+																	<div class="form-line">
+																		
+																		<textarea class="form-control " rows="10" name="resume"  placeholder="Plq"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+																	</div>
+																</div>
+																
+															</div>
+															
+														</div>
+													</div>
+													
+													<div class="col-sm-6">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">CRP</label>
+																<textarea class="form-control " rows="10" name="resume"  placeholder="Plq"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Créatinine</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Clairance de la créatinine</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">GAJ</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">HbA1c</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Prélèvement local</label>
+																<select class="form-control " name="thy" style="padding-left:5px">
+																	<option value=""> --- Sélectionner --- </option>
+																	<option value="">Ecouvillonnage</option>
+																	<option value="">Ponction de pus</option>
+																	<option value="">Biopsie tissulaire</option>
+																	<option value="">Biopsie osseuse</option>
+																	<option value="">Antibiogramme</option>
+																</select>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<b style="color:#000">Bilan radiologique</b>
+											</div>
+											<div class="col-sm-12">
+												<div class="row">
+													
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Radiographie du pied</label>
+																<select class="form-control " name="thy" style="padding-left:5px">
+																	<option value=""> --- Sélectionner --- </option>
+																	<option value="">Initiale</option>
+																	<option value="">De contrôle</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">IPS à droite </label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">IPS à gauche</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Echodoppler artériel des membres inférieurs</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Echocoeur</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													
+												</div>
+											</div>
+											
+											
+											
+										</div>
+										
+										<div class="col-sm-12 retour-comp"></div>
+										<div class="row clearfix">
+											<div class="col-sm-12">
+												<button type="button" class="btn btn-raised bg-blue-grey" id="complication">Enregistrer</button>
+											</div>
+										</div>
+									</form>
+								</div>
+                            </div>
+							<div role="tabpanel" class="tab-pane" id="prise">
+                                <div class="header" style="margin-top:45px">
+									<h2>Prise en charge<small>renseignez tous les champs marqués par des (*)</small> </h2>
+								</div>
+								<div class="body">
+									<form id="form-comp">
+										<div class="col-sm-12 retour-comp"></div>
+										<div class="row clearfix">
+											
+											<div class="col-sm-12">
+												<div class="row">
+													<div class="col-sm-6">
+														<div class="col-lg-12">
+															<label style="color:#000">Insulinothérapie</label>
+														</div>
+														<div class="row">
+															
+															<div class="col-lg-6">
+																<div class="form-group">
+																	<div class="form-line">
+																		<textarea class="form-control " rows="10" name="resume" placeholder="Schéma" ><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+																	</div>
+																</div>
+																
+															</div>
+															<div class="col-lg-6">
+																<div class="form-group">
+																	<div class="form-line">
+																		<textarea class="form-control " rows="10" name="resume"  placeholder="Doses"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													
+													
+													<div class="col-sm-6">
+														<div class="col-lg-12">
+															<label style="color:#000">Podologique</label>
+														</div>
+														<div class="row">
+															
+															<div class="col-lg-6">
+																<div class="form-group">
+																	<div class="form-line">
+																		<textarea class="form-control " rows="10" name="resume" placeholder="Décharge" ><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+																	</div>
+																</div>
+																
+															</div>
+															<div class="col-lg-6">
+																<div class="form-group">
+																	<div class="form-line">
+																		<textarea class="form-control " rows="10" name="resume"  placeholder="Type de soins locaux"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-12">
+														<div class="col-lg-12">
+															<label style="color:#000">Traitement médical</label>
+														</div>
+														<div class="row">
+															
+															<div class="col-lg-6">
+																<div class="form-group">
+																	<div class="form-line">
+																		<label style="color:#000">Type d’antibiothérapie</label>
+																		<textarea class="form-control " rows="10" name="resume"  placeholder="Type de soins locaux"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="form-group">
+																	<div class="form-line">
+																		<label style="color:#000">Autres</label>
+																		<textarea class="form-control " rows="10" name="resume"  placeholder="Type de soins locaux"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="form-group">
+																	<div class="form-line">
+																		<label style="color:#000">Traitement chirurgical</label>
+																		<select class="form-control " name="thy" style="padding-left:5px">
+																			<option value=""> --- Sélectionner --- </option>
+																			<option value="">Nécrosectomie</option>
+																			<option value="">Amputation mineure</option>
+																			<option value="">Amputation majeure</option>
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="form-group">
+																	<div class="form-line">
+																		<label style="color:#000">Générale</label>
+																		<textarea class="form-control " rows="10" name="resume"  placeholder="Type de soins locaux"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="form-group">
+																	<div class="form-line">
+																		<label style="color:#000">Statut vaccinal</label>
+																		<textarea class="form-control " rows="10" name="resume"  placeholder="Type de soins locaux"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="form-group">
+																	<div class="form-line">
+																		<label style="color:#000">Autres</label>
+																		<textarea class="form-control " rows="10" name="resume"  placeholder="Type de soins locaux"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+																	</div>
+																</div>
+															</div>
+															
+														</div>
+													</div>
+													
+												</div>
+											</div>
+											
+											
+										</div>
+										
+										<div class="col-sm-12 retour-comp"></div>
+										<div class="row clearfix">
+											<div class="col-sm-12">
+												<button type="button" class="btn btn-raised bg-blue-grey" id="complication">Enregistrer</button>
+											</div>
+										</div>
+									</form>
+								</div>
+                            </div>
+							<div role="tabpanel" class="tab-pane" id="Exdiab">
+                                <div class="header" style="margin-top:45px">
+									<h2>Examen clinique diabete<small>renseignez tous les champs marqués par des (*)</small> </h2>
+								</div>
+								<div class="body">
+									<form id="form-comp">
+										<div class="col-sm-12 retour-comp"></div>
+										<div class="row clearfix">
+											
+											<div class="col-sm-12">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Examen général</label>
+																<textarea class="form-control " rows="10" name="resume"  ><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-12">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Examen cardiovasculaire</label>
+																<textarea class="form-control " rows="10" name="resume" ><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-12">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Examen cervical</label>
+																<textarea class="form-control " rows="10" name="resume" ><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-12">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Examen pleuro pulmonaire</label>
+																<textarea class="form-control " rows="10" name="resume"  ><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-12">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Examen digestif </label>
+																<textarea class="form-control " rows="10" name="resume"  ><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-12">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Examen gynécologique  </label>
+																<textarea class="form-control " rows="10" name="resume" ><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-12">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Examen des pieds</label>
+																<textarea class="form-control " rows="10" name="resume"  ><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													
+													<div class="col-sm-12">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Conclusion *</label>
+																<textarea class="form-control obligatoire" rows="10" name="ccl"><?php if($consultation){echo $consultation->csl_sCcl ;}?></textarea>
+															</div>
+														</div>
+													</div>												
+											
+												
+												</div>
+											</div>
+											
+											
+										</div>
+										
+										<div class="col-sm-12 retour-comp"></div>
+										<div class="row clearfix">
+											<div class="col-sm-12">
+												<button type="button" class="btn btn-raised bg-blue-grey" id="complication">Enregistrer</button>
+											</div>
+										</div>
+									</form>
+								</div>
+                            </div>
+							
+							
+							<div role="tabpanel" class="tab-pane" id="lesion">
+                                <div class="header" style="margin-top:45px">
+									<h2>Lésion<small>renseignez tous les champs marqués par des (*)</small> </h2>
+								</div>
+								<div class="body">
+									<form id="form-lesion">
+										<div class="col-sm-12 retour-lesion"></div>
+										<div class="row clearfix">
+											<div class="col-sm-12">
+												<b style="color:#000">Lésion</b>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Facteur déclenchant</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Lésion par objet contendant </option>
+															<option value="2">Brûlures</option>
+															<option value="2">Lésion par frottement</option>
+															<option value="2">Intertrigo interorteil</option>
+															<option value="2">Intertrigo interorteil</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Autres</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Traitement antérieur </label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Médical</option>
+															<option value="2">Soins locaux</option>
+															<option value="2">Traditionnels</option>
+															<option value="2">Chirurgical</option>
+															<option value="2">Intertrigo interorteil</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Type de la lésion </label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">MPP</option>
+															<option value="2">Cellulite</option>
+															<option value="2">Ulcère ischémique</option>
+															<option value="2">Phlegmon</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-8">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Autres lésion </label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											
+										</div>
+										<div class="row clearfix">
+											<div class="col-sm-12">
+												<b style="color:#000">Examen cutané</b>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Déformation du pied</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Amputation</option>
+															<option value="2">Effondrement de la voûte plantaire</option>
+															<option value="2">Angulation</option>
+															<option value="2">Pied plat</option>
+															<option value="2">Pied de CHARCOT</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Hyperkératose</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Décollement cutané</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Durillon</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Cal</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Lésion unguéale</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Type</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Autres</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											
+										</div>
+										<div class="row clearfix">
+											<div class="col-sm-12">
+												<b style="color:#000">Caractéristiques de la lésion</b>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Caractéristiques</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Unique</option>
+															<option value="2">Multiple</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Siège</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Aspect</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Fond</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Profondeur</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Examen au stylet</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Test au monofilament </label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="Positif">Positif</option>
+															<option value="Négatif">Négatif</option>
+															<option value="Non fait">Non fait</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Trouble sensitif </label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="Oui">Oui</option>
+															<option value="Non">Non</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">ROT</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="Oui">Présents </option>
+															<option value="Non">Abolis</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Neuropathie (/10)</label>
+														<textarea class="form-control " rows="10" name="resume" placeholder="Score de DN4"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row clearfix">
+											<div class="col-sm-12">
+												<b style="color:#000">Artériopathie (questionnaire d’Eidenburg)</b>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Ressentez-vous une douleur ou gêne dans une jambe quand vous marchez ?</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Oui</option>
+															<option value="2">Non</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Cette douleur commence-t-elle parfois à se manifester quand vous êtes debout immobile ou assis ?</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Oui</option>
+															<option value="2">Non</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Ressentez-vous cette douleur quand vous montez une cote ou quand vous marchez vite ?</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Oui</option>
+															<option value="2">Non</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">La ressentez-vous quand vous marchez d’un pas normal sur terrain plat ?</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Oui</option>
+															<option value="2">Non</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Que devient la douleur si vous vous arrêtez ?</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Elle persiste habituellement plus de 10mn </option>
+															<option value="2">Elle disparaît habituellement en 10mn au moins</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Où ressentez-vous cette douleur ou gêne ?</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Mollet</option>
+															<option value="2">Fesse</option>
+															<option value="2">Cuisse</option>
+															<option value="2">Dans une autre partie du corps </option>
+														</select>
+													</div>
+												</div>
+											</div>
+											
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Coloration</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Chaleur locale </label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Pouls pédieux</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Non</option>
+															<option value="2">Oui</option>
+															<option value="2">Ample</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Pouls tibial postérieur </label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Non</option>
+															<option value="2">Oui</option>
+															<option value="2">Ample</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">État veineux </label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Pouls tibial postérieur </label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="2">Oui</option>
+															<option value="1">Non</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Stade de sévérité</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="I">I</option>
+															<option value="II">II</option>
+															<option value="III">III</option>
+															<option value="IV">IV</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Neuropathie (/10)</label>
+														<textarea class="form-control " rows="10" name="resume" placeholder="Score de DN4"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row clearfix">
+											<div class="col-sm-12">
+												<b style="color:#000">Classification de la lésion par Université de Texas</b>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Grade</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">0 : lésion pré ou post ulcérées totalement épithélialisées</option>
+															<option value="2">1 : plaie superficielle n’atteignant pas les tendons, la capsule ou l’os</option>
+															<option value="2">2 : atteinte des tendons ou de la capsule</option>
+															<option value="2">3 : atteinte de l’os ou de l’articulation</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Grade</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">0 : lésion pré ou post ulcérées totalement épithélialisées</option>
+															<option value="2">1 : plaie superficielle n’atteignant pas les tendons, la capsule ou l’os</option>
+															<option value="2">2 : atteinte des tendons ou de la capsule</option>
+															<option value="2">3 : atteinte de l’os ou de l’articulation</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											
+										</div>
+										
+										<div class="col-sm-12 retour-c"></div>
+										<div class="row clearfix">
+											
+											<div class="col-sm-12">
+												<button type="button" class="btn btn-raised bg-blue-grey" id="consult">Enregistrer</button>
+											</div>
+										</div>
+									</form>
+								</div>
+                            </div>	
+							
+							<div role="tabpanel" class="tab-pane" id="pied">
+                                <div class="header" style="margin-top:45px">
+									<h2>PIED DIABETIQUE<small>renseignez tous les champs marqués par des (*)</small> </h2>
+								</div>
+								<div class="body">
+									<form id="form-c">
+										<div class="col-sm-12 retour-c"></div>
+										<div class="row clearfix">
+											<div class="col-sm-12">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Motif d’hospitalisation </label>
+														
+														<input type="hidden" value="<?php echo $acm->pat_id; ?>" name="pat">
+														<input type="hidden" value="<?php echo $acm_id; ?>" name="id">
+														<input type="hidden" value="<?php echo $patient->pat_id; ?>" name="pat">
+														<textarea class="form-control " rows="10" name="an"><?php if($consultation){echo $consultation->csl_sAnamnese ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<b style="color:#000">Facteurs de risque cardiovasculaire</b>
+											</div>		
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Dyslipidémie</label>
+														<select class="form-control " name="thy" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Oui</option>
+															<option value="2">Non</option>
+															<option value="3">Inconnu</option>
+															
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Sédentarité</label>
+														<select class="form-control " name="thy" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Oui</option>
+															<option value="2">Non</option>
+															<option value="3">Inconnu</option>
+															
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Tabagisme</label>
+														<select class="form-control " name="thy" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Oui</option>
+															<option value="2">Non</option>
+															<option value="3">Inconnu</option>
+															
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">HTA</label>
+														<select class="form-control " name="thy" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Oui</option>
+															<option value="2">Non</option>
+															<option value="3">Inconnu</option>
+															
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Ménopause</label>
+														<select class="form-control " name="thy" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Oui</option>
+															<option value="2">Non</option>
+															<option value="3">Inconnu</option>
+															
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-9">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Autres</label>
+														<textarea class="form-control " rows="10" name="an"><?php if($consultation){echo $consultation->csl_sAnamnese ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<b style="color:#000">Histoire du diabète</b>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Type de diabete</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<?php foreach($listedgq AS $ld){?>
+																<?php if(!is_null($consultation->dgq_id)){?>
+																	<option value="<?php echo $ld->dgq_id; ?>" <?php if($ld->dgq_id==$consultation->dgq_id){echo 'selected="selected"';} ;?>> <?php echo $ld->dgq_sLib; ?> </option>
+																<?php }else{?>
+																	<option value="<?php echo $ld->dgq_id; ?>" > <?php echo $ld->dgq_sLib; ?> </option>
+																<?php } ?>
+															<?php } ?>
+														</select>
+													</div>
+												</div>
+											</div>
+																				
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Age de début</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+													<label style="color:#000">Ancienneté du diabète </label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<b style="color:#000">Traitement actuel</b>
+											</div>	
+											<div class="col-sm-6">
+												
+												<label style="color:#000">Insulinique</label>
+												<div class="row">
+													<div class="col-sm-6">
+													<div class="form-group">
+														<div class="form-line">
+															<label style="color:#000">Type</label>
+															<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														</div>
+													</div>
+													</div>
+													<div class="col-sm-6">
+													<div class="form-group">
+														<div class="form-line">
+															<label style="color:#000">Shema</label>
+															<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+														</div>
+													</div>
+													
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												
+												<label style="color:#000">Non insulinique</label>
+												<div class="row">
+													<div class="col-sm-6">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Type</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<div class="form-line">
+																<label style="color:#000">Dose</label>
+																<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Type de diabete</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Médecin spécialiste</option>
+															<option value="2">Médecin généraliste </option>
+															<option value="3">Infirmier</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Rythme de suivi</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Activité physique</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Oui</option>
+															<option value="2">Non</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Type</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+													
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Nombre d’heures/semaine</label>
+														<textarea class="form-control " rows="10" name="resume"><?php if($consultation){echo $consultation->csl_sResume ;}?></textarea>
+													</div>
+													
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Règles diététiques</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Respectées </option>
+															<option value="2">Non respectées </option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<div class="form-line">
+														<label style="color:#000">Complications aigues</label>
+														<select name="diagnos" class="form-control" id="" style="padding-left:5px">
+															<option value=""> --- Sélectionner --- </option>
+															<option value="1">Oui</option>
+															<option value="2">Non</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											
+										</div>
+										<div class="col-sm-12 retour-c"></div>
+										<div class="row clearfix">
+											
+											<div class="col-sm-12">
+												<button type="button" class="btn btn-raised bg-blue-grey" id="consult">Enregistrer</button>
+											</div>
+										</div>
+									</form>
+								</div>
+                            </div>	
+							
+							
 							
 							<div role="tabpanel" class="tab-pane" id="hypophyse">
                                 <div class="header" style="margin-top:45px">
