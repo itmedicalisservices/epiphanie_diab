@@ -16,7 +16,7 @@
 						
 						<div class="card">
 							<div class="header">
-								<h2>Liste des consultations en attente</h2>
+								<h2>Liste des consultations en attente </h2>
 							</div>
 							<div class="body table-responsive">
 								<table id="example1" class="table table-bordered table-striped table-hover">

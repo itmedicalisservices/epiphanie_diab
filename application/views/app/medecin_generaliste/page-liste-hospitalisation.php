@@ -14,7 +14,7 @@
 						
 						<div class="card">
 							<div class="header">
-								<h2>Liste des patients en hospitalisation</h2>
+								<h2>Liste des patients en hospitalisation </h2>
 							</div>
 							<div class="body table-responsive">
 								<table id="example" class="table table-bordered table-striped table-hover">

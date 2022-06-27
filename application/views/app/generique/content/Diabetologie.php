@@ -89,6 +89,7 @@
 											<th>N° Matricule</th>
 											<th>Nom</th>
 											<th>Prénom</th>
+											<th>Date de Naissance</th>
 											<th>Localisation</th>
 											<th>disposition</th>
 											<th>Début d'hospitalisation</th>
@@ -102,6 +103,7 @@
 											<td><?php echo $le->pat_sMatricule; ?></td>
 											<td><?php echo $le->pat_sNom; ?></td>
 											<td><?php echo $le->pat_sPrenom; ?></td>
+											<td><?php echo $le->pat_dDateNaiss; ?></td>
 											<td>
 												Service : <b><?php echo $le->ser_sLibelle; ?></b><br>
 												Unité :<b><?php echo $le->uni_sLibelle; ?></b><br>

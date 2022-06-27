@@ -26,7 +26,6 @@ class Md_connexion extends CI_Model {
 		return $this->db->where("per_sTel",$tel)->where("per_sPwd",$pwd)->where("per_iSta",1)->get($this->tablePer)->row();
 	}
 	
-	
 	public function mdp_oublie($email)
 	{
 		return $this->db->where("usr_sEmail",$email)->get($this->tableUser)->row();

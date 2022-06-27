@@ -18,10 +18,12 @@ class Hospitalisation extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
 	public function index()
 	{
 		$this->load->view('app/diabetologie/page-liste-hospitalisation');
 	}
+
 	public function maternite()
 	{
 		$this->load->view('app/maternite/page-liste-hospitalisation');
