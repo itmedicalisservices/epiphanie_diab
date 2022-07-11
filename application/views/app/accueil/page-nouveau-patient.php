@@ -73,6 +73,28 @@
 																		</select>
 																	</div>
 																</div>
+																
+																<div class="col-sm-3">
+																	<div class="form-group drop-custum">
+																		<input type="text" name="lieu" class="form-control obligatoire" placeholder="Lieu de naissance *">
+																	</div>
+																</div>
+																
+																<div class="col-sm-3">
+																	<div class="form-group drop-custum">
+																		<input type="text" name="pere" class="form-control obligatoire" placeholder="Nom du père *">
+																	</div>
+																</div>
+																<div class="col-sm-3">
+																	<div class="form-group drop-custum">
+																		<input type="text" name="mere" class="form-control obligatoire" placeholder="Nom de la mère *">
+																	</div>
+																</div>
+																<div class="col-sm-3">
+																	<div class="form-group drop-custum">
+																		<input type="text" name="provenance" class="form-control obligatoire" placeholder="Provenance du patient *">
+																	</div>
+																</div>
 																<div class="col-sm-3">
 																	<div class="form-group drop-custum">
 																		<select name="situation" class="form-control obligatoire show-tick">
@@ -151,6 +173,15 @@
 																		<input name="photo" type="file" class="form-control photo" />
 																	</div>
 																</div>
+																<div class="col-sm-12 ">
+																	<div class="form-group">
+																		<div class="form-group">
+																			<div class="form-line">
+																				<textarea rows="4" name="diagnostique" class="form-control obligatoire" placeholder="Diagnostique à l'entrée *"></textarea>
+																			</div>
+																		</div>
+																	</div>
+																</div>	
 																<div class="col-sm-12 cacher">
 																	<div class="form-group">
 																		<div class="form-group">
@@ -159,7 +190,8 @@
 																			</div>
 																		</div>
 																	</div>
-																</div>							
+																</div>
+																					
 																<div class="col-sm-12">
 																	<button type="submit" class="btn btn-raised bg-blue-grey" id="EnregistrerPatient">Enregistrer</button>
 																</div>

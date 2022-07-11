@@ -237,22 +237,33 @@
 								<div class="row clearfix">
 									<div class="col-sm-12 retour-hos"></div>
 									<div class="col-sm-12 retour-hostFinal"></div>
-									<div class="col-sm-3">
+									<div class="col-sm-6">
+										<div class="form-line">
+											<label style="color:#000"><b>Unité *</b></label>
+											<div class="form-group drop-custum">
+												<select name="uni" class="form-control unitePresc obligatoire show-tick">
+													<option value="">------------ Choisir l'unité --------------</option>
+													<?php $unites = $this->md_parametre->liste_unite_services_actifs(459);foreach($unites AS $u){?>
+														<option value="<?php echo $u->uni_id; ?>"><?php echo $u->uni_sLibelle; ?></option>
+													<?php } ?>
+												</select>
+											</div>
+											
+										</div>
+									</div>
+									<div class="col-sm-6">
 										<div class="form-line">
 											<label style="color:#000"><b>Chambre *</b></label>
 											<div class="form-group drop-custum">
 												<input type="hidden" name="pat" class="form-control " id="patientID"/>
-												<input type="hidden" name="uni" class="form-control " value="202" />
 												<select name="cha" class="form-control chambrePresc obligatoire show-tick">
 													<option value="">-- Choisir la chambre --</option>
-													<?php $chambres = $this->md_parametre->liste_chambre_unite_dispo(202); foreach($chambres as $C){ ?>
-														<option value="<?=$C->cha_id;?>"><?=$C->cha_sLibelle;?></option>
-													<?php } ?>
+													
 												</select>
 											</div>
 										</div>
 									</div>
-									<div class="col-sm-3">
+									<div class="col-sm-4">
 										<div class="form-line">
 											<label style="color:#000"><b>Lit *</b></label>
 											<div class="form-group drop-custum">
@@ -262,7 +273,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-sm-3">
+									<div class="col-sm-4">
 										<div class="form-group">
 											<div class="form-line">
 												<label style="color:#000"><b>Type d\'hospitalisation *</b></label>
@@ -273,15 +284,16 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-sm-3">
+									<div class="col-sm-4">
 										<div class="form-group">
 											<div class="form-line">
 												<label style="color:#000"><b>Mode d'admission *</b></label>
 												<select name="motif" class="form-control obligatoire">
 													<option value="">-- Choisir le mode --</option>
-													<option value="Admission par l'urgence">Admission par l'urgence</option>
-													<option value="mission direct">Amission direct</option>
-													<option value="Transferer à l'entré">Transferer à l'entré</option>
+													<option value="1">Urgences Médicales</option>
+													<option value="2">Référes en entrée</option>
+													<option value="3">Transférés en entrée</option>
+													<option value="4">Evacués</option>
 												</select>
 											</div>
 										</div>

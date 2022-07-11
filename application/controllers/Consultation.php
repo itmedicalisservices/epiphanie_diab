@@ -1080,6 +1080,25 @@ class Consultation extends CI_Controller {
 	}
 
 
+	public function recupInfoHospitalisation()
+	{
+		date_default_timezone_set('Africa/Brazzaville');
+		$data = $this->input->post();
+		if (empty($data)) {
+			echo "erreur";
+			// var_dump($data);
+		} else {
+			$hos = $this->md_patient->hospitalisation($data["id"]);
+			$date_hos = explode(" ",$hos->hos_dDate);
+			$nbJour = $this->md_config->NbJours($date_hos[0],date("Y-m-d"));
+			echo '<input type="hidden" name="cout" value="'.$nbJour*$hos->cha_iPrixLit.'"/>
+				<input type="hidden" value="'.$hos->acm_id.'" name="id">
+				<input type="hidden" value="'.$hos->pat_id.'" name="pat">
+				<input type="hidden" value="'.$hos->hos_id.'" name="hos">';
+		}
+	}
+	
+	
 	public function recupHospitalisation()
 	{
 		date_default_timezone_set('Africa/Brazzaville');

@@ -19,10 +19,27 @@
 								</li>-->
 							</ul>
 						</li>
-						<li class="<?php if ($page == "diabetologie" or $sousPage == "prise_cste") {
+						<li class="<?php if ($page == "diabetologie" AND $sousPage == "prise_cste") {
 									echo "active";
 								} ?>"><a href="<?php echo site_url("diabetologie/liste_acm"); ?>"><i class="fa fa-plus"></i><span>Prise de constantes</span> </a>
-						</li>		
+						</li>
+						<li class="<?php if ($page == "diabetologie" AND $sousPage == "liste_sortie") {
+									echo "active";
+								} ?>"><a href="<?php echo site_url("diabetologie/liste_sortie"); ?>"><i class="fa fa-plus"></i><span>Fin d'hospitalisation</span> </a>
+						</li>
+						<li class="<?php if ($page == "rapport") {
+										echo "active";
+									} ?>"><a href="javascript:void(0);" class="menu-toggle"><i class="fa fa-hospital-o"></i><span>Rapport statistiques</span> </a>
+							<ul class="ml-menu">
+								<li><a <?php if ($page == "rapport" and $sousPage == "activite_service") {
+											echo "style='color:#fff'";
+										} ?> href="<?php echo site_url("rapport/activite_service"); ?>">Activite du service</a></li>
+								<li><a <?php if ($page == "rapport" and $sousPage == "morbidite") {
+											echo "style='color:#fff'";
+										} ?> href="<?php echo site_url("rapport/morbidite"); ?>">Mobidité et Mortalité</a></li>
+								
+							</ul>
+						</li>
 						<!--<li class="<?php if ($page == "rdv") {
 										echo "active";
 									} ?>"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>Rendez-vous</span> </a>
@@ -42,8 +59,6 @@
 								<li><a <?php if ($page == "rdv" and $sousPage == "listeRdvValide") {
 											echo "style='color:#fff'";
 										} ?> href="<?php echo site_url("rdv/listeRdvValide"); ?>">Rendez-vous validés</a></li>
-
-
 							</ul>
 						</li>-->
 						<!-- 

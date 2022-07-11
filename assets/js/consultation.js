@@ -1767,6 +1767,28 @@ $(".ajout_hosp").on("click",function(){
 });
 
 
+$(".fin_hos").on("click",function(){
+	
+	var id = $(this).attr("rel");
+	
+	$.ajax({
+		type:"POST",
+		url: recupInfoHospitalisation,
+		data:"id="+id,
+		async:true,
+		error:function(xhr, status, error){
+			alert(xhr.responseText);
+		}
+		
+	})
+	.done(function(retour){
+		//alert(retour);
+		$("#fin-hos").html(retour);
+	});
+	return true;
+});
+
+
 $(".avis_sej").on("click",function(){
 	
 	var data = $(this).attr("rel");
@@ -2488,11 +2510,12 @@ function finHospitalisation(){
 			$(this).parent("div").removeClass("has-error");
 		}
 	});
+	var data1 = $('form#motif-fin').serialize();
+	var data2 = $('form#fin-hos').serialize();
 	
+		
 	if(nbError == 0){
-		var data1 = $('form#motif-fin').serialize();
-		var data2 = $('form#fin-hos').serialize();
-		// alert(fin_hospitalisation);
+		
 		$.ajax({
 			type:"POST",
 			url: fin_hospitalisation,
@@ -2510,7 +2533,8 @@ function finHospitalisation(){
 			// $('.retour-new-ne').fadeIn('fast',function(){
 				// $('.retour-new-deces').fadeOut(6000);
 			// });
-			location.href=voirHospitalisation+"/"+retour;
+			//location.href=voirHospitalisation+"/"+retour;
+			location.reload(true);
 		});
 		
 	}

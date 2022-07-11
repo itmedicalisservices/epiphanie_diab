@@ -113,6 +113,15 @@ class Rapport extends CI_Controller {
 	{
 		$this->load->view('app/rapport/page-credits-alloues.php');
 	}
-
+	public function activite_service()
+	{
+		$this->load->view('app/rapport/page-activite-service.php');
+	}
+	
+	public function morbidite()
+	{
+		$this->load->view('app/rapport/page-morbidite.php');
+	}
+	
 
 }

@@ -1234,8 +1234,8 @@ $("#valmouv").click(function(){
 			$('#affichemvt').html(retour);
 					
 		});
-	// }
-	// else if(nbError == -1){
+		// }
+		// else if(nbError == -1){
 		// $(".retourmvt").html('<span style="color:#f00">'+'Merci de vérifier les dates saisies !'+'</span>').removeClass("success");
 		// $("form#form-rechmouvement input.form-control.obligatoire").parent("div").addClass("has-error");
 	}else{

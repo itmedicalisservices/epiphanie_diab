@@ -32,7 +32,11 @@ class Diabetologie extends CI_Controller {
 	{
 		$this->load->view('app/diabetologie/page-liste-acm');
 	}
-	
+
+	public function liste_sortie()
+	{
+		$this->load->view('app/diabetologie/page-liste-sortie');
+	}
 	public function donnee_clinique($id)
 	{
 		$this->load->view('app/diabetologie/page-donnee-clinique',array("pat_id"=>$id));

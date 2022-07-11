@@ -125,6 +125,7 @@
 		var listeLitChambreDispo = <?php echo json_encode(site_url('parametre/listeLitChambreDispo')); ?>;
 		var ajoutHospitalisation = <?php echo json_encode(site_url('consultation/ajoutHospitalisation')); ?>;
 		var recupHospitalisation = <?php echo json_encode(site_url('consultation/recupHospitalisation')); ?>;
+		var recupInfoHospitalisation = <?php echo json_encode(site_url('consultation/recupInfoHospitalisation')); ?>;
 		var recupActeExp = <?php echo json_encode(site_url('consultation/recupActeExp')); ?>;
 		var ajoutActeExp = <?php echo json_encode(site_url('consultation/ajoutActeExp')); ?>;
 		var ajoutActeReeducation = <?php echo json_encode(site_url('consultation/ajoutActeReeducation')); ?>;

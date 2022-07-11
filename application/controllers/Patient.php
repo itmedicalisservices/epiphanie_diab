@@ -191,6 +191,11 @@ class Patient extends CI_Controller {
 								"pat_iFemme"=>0,
 								"pat_iEnfant"=>0,
 								"pat_sAct"=>$data["activite"],
+								"pat_sDiagnostique"=>$data["diagnostique"],
+								"pat_sPere"=>$data["pere"],
+								"pat_sMere"=>$data["mere"],
+								"pat_sProvenance"=>$data["provenance"],
+								"pat_sLieuNaiss"=>$data["lieu"],
 								"pat_sAvatar"=>$avatar,
 								"pat_dDateEnreg"=>date("Y-m-d H:i:s")
 							);
@@ -271,6 +276,11 @@ class Patient extends CI_Controller {
 										"pat_iFemme"=>0,
 										"pat_iEnfant"=>0,
 										"pat_sAct"=>$data["activite"],
+										"pat_sDiagnostique"=>$data["diagnostique"],
+										"pat_sPere"=>$data["pere"],
+										"pat_sMere"=>$data["mere"],
+										"pat_sProvenance"=>$data["provenance"],
+										"pat_sLieuNaiss"=>$data["lieu"],
 										"pat_sAvatar"=>$data["photo"],
 										"pat_dDateEnreg"=>date("Y-m-d H:i:s")
 									);
@@ -342,6 +352,11 @@ class Patient extends CI_Controller {
 							"pat_iFemme"=>0,
 							"pat_iEnfant"=>0,
 							"pat_sAct"=>$data["activite"],
+							"pat_sDiagnostique"=>$data["diagnostique"],
+							"pat_sPere"=>$data["pere"],
+							"pat_sMere"=>$data["mere"],
+							"pat_sProvenance"=>$data["provenance"],
+							"pat_sLieuNaiss"=>$data["lieu"],
 							"pat_sAvatar"=>$data["photo"],
 							"pat_dDateEnreg"=>date("Y-m-d H:i:s")
 						);
@@ -379,6 +394,11 @@ class Patient extends CI_Controller {
 					"pat_iFemme"=>0,
 					"pat_iEnfant"=>0,
 					"pat_sAct"=>$data["activite"],
+					"pat_sDiagnostique"=>$data["diagnostique"],
+					"pat_sPere"=>$data["pere"],
+					"pat_sMere"=>$data["mere"],
+					"pat_sProvenance"=>$data["provenance"],
+					"pat_sLieuNaiss"=>$data["lieu"],
 					"pat_sAvatar"=>$avatar,
 					"pat_dDateEnreg"=>date("Y-m-d H:i:s")
 				);
